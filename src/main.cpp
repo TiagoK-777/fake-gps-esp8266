@@ -47,9 +47,9 @@ bool simulateMotion = false;
 
 // --- Controle de Mensagens NMEA ---
 bool enableGGA = true;
-bool enableGSA = true;
+bool enableGSA = false;
 bool enableVTG = true;
-bool enableRMC = true;
+bool enableRMC = false;
 bool enableGSV = false;
 bool enableZDA = false;
 bool enableHPR = false;
