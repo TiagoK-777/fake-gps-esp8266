@@ -35,7 +35,7 @@ float yawRate = 0.0; // graus/s
 
 // --- Configurações do Sistema ---
 unsigned long updateRate = 100; // ms
-long serialBaud = 115200;
+long serialBaud = 460800;
 bool simulateMotion = false;
 
 // --- Controle de Mensagens NMEA ---
