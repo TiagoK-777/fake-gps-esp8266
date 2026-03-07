@@ -419,7 +419,7 @@ void handleUpdate() {
 // --- Funções GPS NMEA ---
 String calculateChecksum(String sentence) {
   int checksum = 0;
-  for (int i = 1; i < sentence.length(); i++) {
+  for (unsigned int i = 1; i < sentence.length(); i++) {
     checksum ^= sentence.charAt(i);
   }
   String checksumStr = String(checksum, HEX);
@@ -436,7 +436,7 @@ String formatLatitude(double lat) {
   int degrees = (int)lat;
   double minutes = (lat - degrees) * 60.0;
 
-  char buffer[20];
+  char buffer[32];
   snprintf(buffer, sizeof(buffer), "%02d%02.6f,%c", degrees, minutes, latDir);
   return String(buffer);
 }
@@ -447,7 +447,7 @@ String formatLongitude(double lon) {
   int degrees = (int)lon;
   double minutes = (lon - degrees) * 60.0;
 
-  char buffer[20];
+  char buffer[32];
   snprintf(buffer, sizeof(buffer), "%03d%02.6f,%c", degrees, minutes, lonDir);
   return String(buffer);
 }
