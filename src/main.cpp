@@ -8,6 +8,13 @@
 #define WIFI_SSID "Quer Navegar compra um barco"
 #define WIFI_PASS "salgado40"
 
+// Configurações de IP Estático
+IPAddress local_IP(192, 168, 1, 81);   // IP desejado
+IPAddress gateway(192, 168, 1, 1);      // Gateway do seu roteador
+IPAddress subnet(255, 255, 255, 0);     // Máscara de sub-rede
+IPAddress primaryDNS(192, 168, 1, 1);   // DNS Primário (opcional)
+IPAddress secondaryDNS(8, 8, 8, 8);     // DNS Secundário (opcional)
+
 // --- Objetos Globais ---
 ESP8266WebServer server(80);
 
@@ -663,6 +670,11 @@ void setup() {
   }
 
   WiFi.mode(WIFI_STA);
+  
+  if (!WiFi.config(local_IP, gateway, subnet, primaryDNS, secondaryDNS)) {
+    // Falha ao configurar IP Estatico
+  }
+
   WiFi.begin(WIFI_SSID, WIFI_PASS);
 
   unsigned long wifiStart = millis();
